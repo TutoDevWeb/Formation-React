@@ -10,29 +10,22 @@ class App extends React.Component {
       { id: 1, nom: "Loir Chamla" },
       { id: 2, nom: "Magali Perpin" },
       { id: 3, nom: "Jean Luois" }
-    ],
-    compteur : 0
+    ]
+  }
+
+  handleDelete = (id) => {
+    console.log(id);
   }
   
-  handleClick = () => {
-
-    // const clients = this.state.clients.slice();
-    // On se fait du spread operator quand même
-    const clients = [...this.state.clients];
-    clients.push({id:4,nom:"Anne Dupont"});
-
-    this.setState({clients : clients})
-
-  };
-
   render() {
     const title = "! Liste des clients !";
     return (
       <div>
         <h1>{title}</h1>
-        <button onClick={this.handleClick}>Click Me</button>
         <ul>
-          {this.state.clients.map((client) => <li>{client.nom} <button>X</button></li>)}
+          {this.state.clients.map(
+            (client) => <li>{client.nom} <button onClick={() => this.handleDelete(client.id)}>X</button></li>)
+          }
         </ul>
         <form>
           <input type="text" placeholder="Ajouter un client" />
