@@ -15,16 +15,21 @@ class App extends React.Component {
   }
   
   handleClick = () => {
-    this.setState({compteur:this.state.compteur+1});
-    console.log(this.state);
-  }
+
+    // const clients = this.state.clients.slice();
+    // On se fait du spread operator quand même
+    const clients = [...this.state.clients];
+    clients.push({id:4,nom:"Anne Dupont"});
+
+    this.setState({clients : clients})
+
+  };
 
   render() {
     const title = "! Liste des clients !";
     return (
       <div>
         <h1>{title}</h1>
-        {this.state.compteur}
         <button onClick={this.handleClick}>Click Me</button>
         <ul>
           {this.state.clients.map((client) => <li>{client.nom} <button>X</button></li>)}
