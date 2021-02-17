@@ -15,6 +15,10 @@ class App extends React.Component {
 
   handleDelete = (id) => {
     console.log(id);
+    const clients = [...this.state.clients];
+    const index = clients.findIndex( (client) => client.id === id );
+    clients.splice(index,1);
+    this.setState({clients : clients})
   }
   
   render() {
