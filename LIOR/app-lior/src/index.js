@@ -5,27 +5,29 @@ import "./styles.css";
 
 class App extends React.Component {
 
-    state = {
-      clients : [
-        {id : 1, nom : "Loir Chamla"},
-        {id : 2, nom : "Magali Perpin"},
-        {id : 3, nom : "Jean Luois"}
-      ]
-    }
+  state = {
+    clients: [
+      { id: 1, nom: "Loir Chamla" },
+      { id: 2, nom: "Magali Perpin" },
+      { id: 3, nom: "Jean Luois" }
+    ]
+  }
 
   render() {
+    const title = "! Liste des clients !";
+    const elements = this.state.clients.map(function(client){
+      return (<li>{client.nom} <button>X</button></li>)
+    })
     return (
       <div>
-        <h1>Bonjour à Tous !</h1>
+        <h1>{title}</h1>
         <ul>
-          <li>Lior Camlar <button>X</button></li>
-          <li>Magali Perpin <button>X</button></li>
-          <li>Jean Luois <button>X</button></li>
+          {elements}
         </ul>
         <form>
           <input type="text" placeholder="Ajouter un client" />
           <button>Confirmer</button>
-        </form> 
+        </form>
       </div>
     )
 
