@@ -4,6 +4,15 @@ import ReactDOM from 'react-dom';
 import "./styles.css";
 
 class App extends React.Component {
+
+    state = {
+      clients : [
+        {id : 1, nom : "Loir Chamla"},
+        {id : 2, nom : "Magali Perpin"},
+        {id : 3, nom : "Jean Luois"}
+      ]
+    }
+
   render() {
     return (
       <div>
