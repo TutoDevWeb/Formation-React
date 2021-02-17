@@ -5,11 +5,13 @@ import "./styles.css";
 
 class App extends React.Component {
 
+  clientInput = React.createRef();
+
   state = {
     clients: [
       { id: 1, nom: "Loir Chamla" },
       { id: 2, nom: "Magali Perpin" },
-      { id: 3, nom: "Jean Luois" }
+      { id: 3, nom: "Jean Louis" }
     ]
   }
 
@@ -19,6 +21,11 @@ class App extends React.Component {
     const index = clients.findIndex( (client) => client.id === id );
     clients.splice(index,1);
     this.setState({clients : clients})
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.clientInput);
   }
   
   render() {
@@ -31,8 +38,8 @@ class App extends React.Component {
             (client) => <li>{client.nom} <button onClick={() => this.handleDelete(client.id)}>X</button></li>)
           }
         </ul>
-        <form>
-          <input type="text" placeholder="Ajouter un client" />
+        <form onSubmit={this.handleSubmit} > 
+          <input ref={this.clientInput} type="text" placeholder="Ajouter un client" />
           <button>Confirmer</button>
         </form>
       </div>
