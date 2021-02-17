@@ -1,0 +1,42 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Video-4</title>
+	<!-- Le plugin babel qui doit transformer le JSX en temps réel -->
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	<!-- Les deux fichiers react à aller chercher sur des CDN -->
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+</head>
+
+<body>
+
+	<div id="app"></div>
+
+	<!-- Ici le Javascript directement dans le même fichier -->
+	<script type="text/babel">
+
+		// Le composant react
+		class App extends React.Component {
+			render() {
+				return (
+					// Ca c'est du JSX
+					<div className="content">
+						<p>Bonjour à tous</p>
+					</div>
+				)
+			}
+		}
+
+		// Ici on lie le div de la classe app avec le component react App
+		// Ca veut dire que l'on va placer le component react dedans.
+		ReactDOM.render(<App />, document.getElementById('app'));
+
+	</script>
+
+</body>
+
+</html>
