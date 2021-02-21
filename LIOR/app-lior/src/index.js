@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 
 import "./styles.css";
 
+// 49 minutes.
+
 class App extends React.Component {
 
   clientInput = React.createRef();
@@ -25,7 +27,7 @@ class App extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.clientInput);
+    console.log(this.clientInput.current.value);
   }
   
   render() {
